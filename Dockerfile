@@ -26,8 +26,9 @@ RUN cd Android/sdk/tools/bin && ./sdkmanager "build-tools;29.0.2" "patcher;v4" "
 ENV PATH "$PATH:/home/developer/Android/sdk/platform-tools"
 
 # Instalando Flutter SDK
-RUN wget -O flutter.tar.gz https://storage.googleapis.com/flutter_infra/releases/stable/linux/flutter_linux_2.0.3-stable.tar.xz
-RUN tar -xf flutter.tar.gz && rm flutter.tar.gz
+#RUN wget -O flutter.tar.gz https://storage.googleapis.com/flutter_infra/releases/stable/linux/flutter_linux_2.0.3-stable.tar.xz
+#RUN tar -xf flutter.tar.gz && rm flutter.tar.gz
+RUN git clone https://github.com/flutter/flutter.git
 ENV PATH "$PATH:/home/developer/flutter/bin"
 
 # Checando configuração Flutter

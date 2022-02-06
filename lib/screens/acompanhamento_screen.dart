@@ -1,4 +1,4 @@
-import 'package:app_helptmo/screens/NovoRegistro_screen.dart';
+import 'package:app_helptmo/screens/novoRegistro_screen.dart';
 import 'package:app_helptmo/screens/visualizarRegistros_screen.dart';
 import 'package:flutter/material.dart';
 

@@ -1,3 +1,4 @@
+<<<<<<< Updated upstream
 <div align="center">
 
 ![⌨_App_PCT_PosTransplante_⌨](https://user-images.githubusercontent.com/63831714/149373590-35e5fea2-cde8-401f-a95f-ff4986658a62.png)
@@ -29,3 +30,21 @@
 
 # 💻 Configuração Windows 💻
  
+=======
+# app_helptmo
+
+A new Flutter project.
+
+## Getting Started
+
+This project is a starting point for a Flutter application.
+
+A few resources to get you started if this is your first Flutter project:
+
+- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
+- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
+
+For help getting started with Flutter, view our
+[online documentation](https://flutter.dev/docs), which offers tutorials,
+samples, guidance on mobile development, and a full API reference.
+>>>>>>> Stashed changes

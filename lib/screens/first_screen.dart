@@ -41,11 +41,8 @@ class _FirstScreenState extends State<FirstScreen> {
                 bottom: 15,
               ),
               child: Text(
-<<<<<<< Updated upstream
                 "Sala de Vacinas",
-=======
-                "Help TMO",
->>>>>>> Stashed changes
+                //"Help TMO",
                 textAlign: TextAlign.center,
                 style: TextStyle(
                     color: Colors.white,

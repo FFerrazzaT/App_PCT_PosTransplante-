@@ -1,7 +1,4 @@
-<<<<<<< Updated upstream
-=======
 import 'package:app_helptmo/screens/medicamentos_screen.dart';
->>>>>>> Stashed changes
 import 'package:flutter/material.dart';
 import 'package:app_helptmo/screens/first_screen.dart';
 
@@ -14,12 +11,8 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Help TMO',
-<<<<<<< Updated upstream
-      home: FirstScreen(),
-=======
       //home: FirstScreen(),
       home: MedicamentosScreen(),
->>>>>>> Stashed changes
     );
   }
 }

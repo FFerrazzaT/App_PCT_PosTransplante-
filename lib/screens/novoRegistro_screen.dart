@@ -1,10 +1,7 @@
-<<<<<<< Updated upstream
-=======
 import 'package:app_helptmo/screens/consultas_screen.dart';
 import 'package:app_helptmo/screens/medicamentos_screen.dart';
 import 'package:app_helptmo/screens/outrasInformacoes_screen.dart';
 import 'package:app_helptmo/screens/sintomas_screen.dart';
->>>>>>> Stashed changes
 import 'package:flutter/material.dart';
 
 class NovoRegistroScreen extends StatefulWidget {
@@ -15,11 +12,6 @@ class NovoRegistroScreen extends StatefulWidget {
 }
 
 class _NovoRegistroScreenState extends State<NovoRegistroScreen> {
-<<<<<<< Updated upstream
-  @override
-  Widget build(BuildContext context) {
-    return Container();
-=======
   Color topColor = Color.fromARGB(255, 42, 74, 117);
   Color bottomColor = Color.fromARGB(255, 28, 218, 195);
 
@@ -162,6 +154,5 @@ class _NovoRegistroScreenState extends State<NovoRegistroScreen> {
         ),
       ),
     );
->>>>>>> Stashed changes
   }
 }

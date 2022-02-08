@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 
+import 'novoRegistro_screen.dart';
+
 class MedicamentosScreen extends StatefulWidget {
   const MedicamentosScreen({Key? key}) : super(key: key);
 
@@ -12,10 +14,23 @@ class _MedicamentosScreenState extends State<MedicamentosScreen> {
   final formKey = GlobalKey<FormState>();
   var modelo = ModeloMedicamento();
   DateTime date = DateTime.now();
+
   TextEditingController _datecontroller = new TextEditingController();
 
   var myFormat = DateFormat('dd/MM/yyyy');
   String hintData = 'Selecione a data de início';
+
+  showAlertDialog1(BuildContext context) {
+    AlertDialog alerta = AlertDialog(
+      title: Text("Registro realizado com sucesso!"),
+    );
+    showDialog(
+      context: context,
+      builder: (BuildContext context) {
+        return alerta;
+      },
+    );
+  }
 
   Future<void> _selectDate(BuildContext context) async {
     final DateTime? picked = await showDatePicker(
@@ -59,12 +74,13 @@ class _MedicamentosScreenState extends State<MedicamentosScreen> {
                 onTap: () => _selectDate(context),
                 child: IgnorePointer(
                   child: TextFormField(
-                    validator: (date) =>
-                        date == null ? 'Esse campo deve ser preenchido!' : null,
-                    onSaved: (date) {
-                      debugPrint(date.toString());
+                    validator: (dataInicio) =>
+                        modelo.dataInicio != '${myFormat.format(date)}'
+                            ? 'Esse campo deve ser preenchido!'
+                            : null,
+                    onSaved: (dataInicio) {
+                      debugPrint(dataInicio.toString());
                     },
-                    autovalidateMode: AutovalidateMode.onUserInteraction,
                     controller: _datecontroller,
                     decoration: InputDecoration(
                       border: OutlineInputBorder(),
@@ -75,14 +91,37 @@ class _MedicamentosScreenState extends State<MedicamentosScreen> {
                 ),
               ),
               SizedBox(height: 15),
-              CustomTextField(
-                label: 'Modo de usar',
-                icon: Icons.mode,
-                hint: 'Oral, tópico...',
-                validator: (text) => text == null || text.isEmpty
-                    ? 'Esse campo deve ser preenchido!'
-                    : null,
-                onSaved: (text) => modelo = modelo.copyWith(modoUso: text),
+              SizedBox(
+                width: 500,
+                child: Align(
+                  alignment: Alignment.centerLeft,
+                  child: Text(
+                    'Modo de usar',
+                    style: TextStyle(
+                      fontSize: 16,
+                    ),
+                  ),
+                ),
+              ),
+              Container(
+                child: TextFormField(
+                  autovalidateMode: AutovalidateMode.onUserInteraction,
+                  maxLines: 5,
+                  validator: (text) => text == null || text.isEmpty
+                      ? 'Esse campo deve ser preenchido!'
+                      : null,
+                  onSaved: (text) => modelo = modelo.copyWith(modoUso: text),
+                  decoration: InputDecoration(
+                    border: OutlineInputBorder(),
+                    prefixIcon: Padding(
+                      padding: const EdgeInsets.only(bottom: 80),
+                      child: Icon(
+                        Icons.mode,
+                      ),
+                    ),
+                    hintText: 'Oral, tópico...',
+                  ),
+                ),
               ),
               SizedBox(
                 height: 15,
@@ -99,6 +138,13 @@ class _MedicamentosScreenState extends State<MedicamentosScreen> {
                       onPressed: () {
                         if (formKey.currentState!.validate()) {
                           formKey.currentState!.save();
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => NovoRegistroScreen(),
+                            ),
+                          );
+                          showAlertDialog1(context);
                           print(modelo.medicamento);
                           print(modelo.modoUso);
                           print(modelo.dataInicio);
